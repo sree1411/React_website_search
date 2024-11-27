@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
 
 const ProductDetail = () => {
-  const [products, setProducts] = useState([]);
   let { id } = useParams();
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProducts(data);
-    };
-    fetchProducts();
-  }, [id]);
+  const apiPath = `products/${id}`;
+  const { data: products } = useFetch(apiPath);
 
   return <div>ProductDetailed Information
   <div key={products.id} style={{ alignItems: "center", padding: "10px" }}>

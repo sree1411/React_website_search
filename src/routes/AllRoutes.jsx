@@ -4,6 +4,7 @@ import ProductList from '../pages/ProductList'
 import ProductDetail from '../pages/ProductDetail'
 import PageNotFound from '../pages/PageNotFound'
 import ProductCategory from '../pages/ProductCategory'
+import ListOfItems from '../pages/ListOfItems'
 
 const AllRoutes = () => {
   return (
@@ -11,7 +12,11 @@ const AllRoutes = () => {
        <Routes>
           <Route path='/'  element={<ProductList apiPath="products" />} />
           <Route path='/productdetail/:id'  element={<ProductDetail/>} />
-          <Route path='/products/category'  element={<ProductCategory apiPath="products/categories"/>} />
+          <Route path='/products/category'  element={<ProductCategory apiPath="products/categories"   />} />
+          <Route path="/products/category/:category" element={<ListOfItems />} />
+
+
+          
           <Route path='*'  element={<PageNotFound/>} />
        </Routes>
     </main>

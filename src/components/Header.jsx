@@ -25,7 +25,7 @@ const Header = () => {
         <li className="nav-item">
           <NavLink className="nav-link active" aria-current="page" to="/products/category">Product Category</NavLink>
         </li>
-         
+     
         
       </ul>
       <form className="d-flex" role="search">

@@ -1,20 +1,28 @@
-import React from 'react'
+ 
 import useFetch from '../hooks/useFetch'
+import { NavLink } from 'react-router-dom';
+import { UserData } from '../UserContext';
 
 const ProductCategory = ({apiPath}) => {
 
-  const {data} = useFetch(apiPath)
-   
-  console.log(data)
+  const {data} = useFetch(apiPath);
+
+  const {query} = UserData()
+
+  const filterdItems = data.filter((pht) =>
+      pht.includes(query.toLowerCase())
+    )
 
   return (
     <div>
         ProductCategory: 
         <ul>
-        {
-            data.map((x)=>(
+         
+
+{
+         filterdItems.map((product)=>(
                 <div>
-                    {x}
+                 <NavLink to={`${product}`}> {product}   </NavLink>   
                 </div>
             ))
          }
